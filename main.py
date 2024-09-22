@@ -52,11 +52,11 @@ if __name__ == "__main__":
     tranform_object=mytransform(raw_data)
     tranformed_data=tranform_object.transformation()
 #   #Data loading
-
-    data_load_object=load(tranformed_data,insert_query,'root','Root@123','localhost')
-    data_load_object.get_connection()
-    data_load_object.write_into_Db()
-    #data_load_object.close_conection()
+    #print(tranformed_data)
+    data_load_object=load(tranformed_data,insert_query,'root','Root@123','localhost',3306)
+    #data_load_object.get_connection()
+    #data_load_object.write_into_Db()
+    data_load_object.load_into_db()
 
     conn_1=connect(user=user_name, password=password, host=host)
     db_cursor= conn_1.cursor()
